@@ -15,15 +15,29 @@
 """
 
 
-def activities(user_age):
-    if 1 <= user_age < 7:
-        return "В вашем возрасте обычно посещают детский сад"
-    elif 7 <= user_age < 18:
-        return "В вашем возрасте обычно учатся в школе"
-    elif 18 <= user_age <= 24:
-        return "В вашем возрасте обычно учатся в ВУЗе"
-    else:
-        return "В вашем возрасте обычно работают"
+def activities():
+    while True:
+        user_age = input("Укажите ваш возраст: ")
+        try:
+            user_age = int(user_age)
+            if user_age < 0:
+                return "Возраст отрицательный, вы еще не родились"
+            elif 0 <= user_age < 1:
+                return "Возраст еще слишком маленький для детского сада"
+            elif 1 <= user_age < 7:
+                return "В вашем возрасте обычно посещают детский сад"
+            elif 7 <= user_age < 18:
+                return "В вашем возрасте обычно учатся в школе"
+            elif 18 <= user_age <= 24:
+                return "В вашем возрасте обычно учатся в ВУЗе"
+            elif 25 <= user_age <= 63:
+                return "В вашем возрасте обычно работают"
+            elif 64 <= user_age <= 110:
+                return "В вашем возрасте обычно выходят на пенсию"
+            else:
+                return "Вы вероятно открыли секрет долгожительства"
+        except ValueError:
+            print("Программа принимает возраст в виде целого числа")
 
 
 def main():
@@ -31,18 +45,7 @@ def main():
     Эта функция вызывается автоматически при запуске скрипта в консоли
     В ней надо заменить pass на ваш код
     """
-    while True:
-        user_age = input("Укажите ваш возраст: ")
-        try:
-            user_age = int(user_age)
-            if 1 <= user_age < 63:
-                user_status = activities(user_age)
-                print(user_status)
-                break
-            else:
-                print("Укажите возраст в диапазоне от 1 до 62")
-        except ValueError:
-            print("Укажите возраст в диапазоне от 1 до 62")
+    print(activities())
 
 
 if __name__ == "__main__":

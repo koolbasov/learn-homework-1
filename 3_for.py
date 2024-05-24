@@ -31,6 +31,7 @@ all_phone_sales = [
     },
 ]
 
+
 def main():
     """
     Эта функция вызывается автоматически при запуске скрипта в консоли
@@ -38,19 +39,19 @@ def main():
     """
     for product in all_phone_sales:
         print(
-            f"Cуммарное количество продаж для {product['product']}: {sum(product['items_sold'])}"
+            f"Cуммарное количество продаж для {product['product']}: "
+            f"{sum(product['items_sold'])}"
         )
-
-    for product in all_phone_sales:
-        print(
-            f"Среднее количество продаж {product['product']}: {round(sum(product['items_sold']) / len(product['items_sold']), 2)}"
-        )
-
     all_sales_sum = 0
     count_sales = 0
     for product in all_phone_sales:
+        print(
+            f"Среднее количество продаж {product['product']}: "
+            f"{round(sum(product['items_sold']) / len(product['items_sold']), 2)}"
+        )
         count_sales += len(product["items_sold"])
         all_sales_sum += sum(product["items_sold"])
+
     print(f"Cуммарное количество продаж всех товаров: {all_sales_sum}")
     print(f"Cреднее количество продаж всех товаров: {all_sales_sum / count_sales}")
 
