@@ -10,6 +10,7 @@
 
 """
 
+
 def hello_user():
     """
     Замените pass на ваш код
@@ -22,6 +23,7 @@ def hello_user():
         except KeyboardInterrupt:
             print("\nПока!")
             break
+
 
 if __name__ == "__main__":
     hello_user()
